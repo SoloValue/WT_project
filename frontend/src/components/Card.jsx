@@ -7,6 +7,7 @@ function Card(props) {
         <h5 className="card-title text-center">{props.product.id} - {props.product.name}</h5>
         <h6 className="card-subtitle mb-2 text-body-secondary text-center">€ {props.product.price}</h6>
         <p className="card-text">{props.product.description}</p>
+        <h6 className="card-text mb-2 text-body-secondary text-end">{props.product.date_created}</h6>
         <div className="card-footer p-0 pt-0 border-top-0 bg-transparent">
           <div className="text-end">
             <button

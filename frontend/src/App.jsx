@@ -37,18 +37,16 @@ function App() {
     })} />)
   );
 
-  return (
-    <>
-      < Navbar />
-      <div className="container">
-        <div>Cart: {JSON.stringify(cart)}</div>
-        <section className='py-5'><div className='container px-4 px-lg-5 mt-5'><div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
-          {card_listJSX}
-        </div></div></section>
-      </div>
-      <Footer />
-    </>
-  )
+  return <>
+    <Navbar />
+    <div className="container">
+      <div>Cart: {JSON.stringify(cart)}</div>
+      <section className='py-5'><div className='container px-4 px-lg-5 mt-5'><div className="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-start">
+        {card_listJSX}
+      </div></div></section>
+    </div>
+    <Footer />
+  </>
 }
 
 export default App;
