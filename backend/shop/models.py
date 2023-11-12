@@ -10,16 +10,6 @@ class Category(models.Model):
 
   def __str__(self) -> str:
     return f'{self.name}'
-
-class Product(models.Model):
-  name = models.CharField(max_length=120)
-  description = models.TextField()
-  price = models.DecimalField(default=0, decimal_places=2, max_digits=7)
-  category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
-  date_created = models.DateField(default=datetime.today)
-
-  def __str__(self) -> str:
-    return f'{self.name}: €{self.price}'
   
 class User(models.Model):
   username = models.CharField(max_length=50)
@@ -29,6 +19,17 @@ class User(models.Model):
   def __str__(self) -> str:
     return f'{self.username} - {self.email}'
   
+class Product(models.Model):
+  name = models.CharField(max_length=120)
+  description = models.TextField()
+  price = models.DecimalField(default=0, decimal_places=2, max_digits=7)
+  category = models.ForeignKey(Category, on_delete=models.CASCADE, default=1)
+  user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+  date_created = models.DateField(default=datetime.today)
+
+  def __str__(self) -> str:
+    return f'{self.name}: €{self.price}'
+
 class Order(models.Model):
   product = models.ForeignKey(Product, on_delete=models.CASCADE)
   user = models.ForeignKey(User, on_delete=models.CASCADE)
