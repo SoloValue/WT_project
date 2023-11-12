@@ -2,20 +2,38 @@ import { useState } from "react";
 import axios from "axios";
 
 function Footer(props) {
-
   function fillDb() {
-    /*axios
-      .post('/api/users/', {
-        username: 'testuser0',
-        email: 'testuser0@shop.aa',
-        password: '123'
-      })*/
+
+    var users_to_add = [1, 2, 3, 4, 5, 6];
+    var users_to_add = users_to_add.map((i) => (
+      {
+        id: i + 1,
+        username: "testuser" + i,
+        email: "testuser" + i + "@shop.aa",
+        password: "123"
+      }
+    ));
 
     axios
-      .delete('/api/users/4')
+      .delete('/api/users/delete_all/')
       .then(() => {
-        alert("Post deleted!");
+        console.log("Users deleated");
       })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    /*axios
+      .delete('/api/products/delete_all/')
+      .then(() => {
+        console.log('Products deleted')
+      })
+      .catch((err) => {
+        console.log(err);
+      });*/
+
+    axios
+      .post('api/users/', users_to_add)
       .catch((err) => {
         console.log(err);
       });
@@ -36,6 +54,3 @@ function Footer(props) {
 }
 
 export default Footer;
-
-
-
