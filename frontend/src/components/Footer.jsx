@@ -7,21 +7,65 @@ function Footer(props) {
     var users_to_add = [1, 2, 3, 4, 5, 6];
     var users_to_add = users_to_add.map((i) => (
       {
-        id: i + 1,
         username: "testuser" + i,
         email: "testuser" + i + "@shop.aa",
         password: "123"
       }
     ));
 
-    axios
+    var products_to_add = [
+      {
+        name: "iPhon 12",
+        description: "Top tier apple product",
+        price: 1299.00,
+        category: 2,
+        user: "testuser2@shop.aa"
+      },
+      {
+        name: "Galaxy S10",
+        description: "Latest smartphone from samsung",
+        price: 870.00,
+        category: 2,
+        user: "testuser2@shop.aa"
+      },
+      {
+        name: "Oppo 8",
+        description: "Cheap and efficient smartphone",
+        price: 670.00,
+        category: 2,
+        user: "testuser2@shop.aa"
+      },
+      {
+        name: "Dune",
+        description: "Dune is a 1965 epic science fiction novel by American author Frank Herbert.",
+        price: 7.99,
+        category: 1,
+        user: "testuser1@shop.aa"
+      },
+      {
+        name: "1968",
+        description: "Nineteen Eighty-Four is a dystopian novel and cautionary tale by English writer George Orwell.",
+        price: 6.70,
+        category: 1,
+        user: "testuser1@shop.aa"
+      },
+      {
+        name: "Dune Messiah",
+        description: "Sequel of Dune",
+        price: 7.50,
+        category: 1,
+        user: "testuser1@shop.aa"
+      }
+    ];
+
+    /*axios
       .delete('/api/users/delete_all/')
       .then(() => {
         console.log("Users deleated");
       })
       .catch((err) => {
         console.log(err);
-      });
+      });*/
 
     /*axios
       .delete('/api/products/delete_all/')
@@ -32,11 +76,28 @@ function Footer(props) {
         console.log(err);
       });*/
 
-    axios
-      .post('api/users/', users_to_add)
-      .catch((err) => {
-        console.log(err);
-      });
+    const deleteUsers = async (a) => {
+      await axios.delete('/api/users/delete_all/');
+      console.log("Users deleted");
+    }
+
+    const postUsers = async (a) => {
+      await axios.post('api/users/', users_to_add);
+      console.log("Users posted");
+    }
+
+    const postProducts = async (a) => {
+      await axios.post('api/products/', products_to_add);
+      console.log("Products posted");
+    }
+    try {
+      var firstResponse = deleteUsers();
+      var secondResponse = postUsers(firstResponse);
+      var thirdResponse = postProducts(secondResponse);
+
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return <footer className="py-5 bg-dark">
