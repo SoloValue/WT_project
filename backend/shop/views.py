@@ -17,10 +17,13 @@ class ProductView(viewsets.ModelViewSet):
     queryset = Product.objects.all()
 
     def create(self, request):
-        serializeObject = ProductSerializer(data = request.data, many=True)
+        if type(request.data) == list:
+            serializeObject = ProductSerializer(data = request.data, many=True)
+        else:
+            serializeObject = ProductSerializer(data = request.data)
         if serializeObject.is_valid():
             serializeObject.save()
-            productObject = User.objects.all()
+            productObject = Product.objects.all()
             productSerializer = ProductSerializer(productObject, many=True)
             return Response(productSerializer.data, status = status.HTTP_201_CREATED)
         return Response(serializeObject.errors, status.HTTP_400_BAD_REQUEST)
@@ -36,7 +39,10 @@ class UserView(viewsets.ModelViewSet):
     queryset = User.objects.all()
 
     def create(self, request):
-        serializeObject = UserSerializer(data = request.data, many=True)
+        if type(request.data) == list:
+            serializeObject = UserSerializer(data = request.data, many=True)
+        else:
+            serializeObject = UserSerializer(data = request.data, many=True)
         if serializeObject.is_valid():
             serializeObject.save()
             userObject = User.objects.all()
