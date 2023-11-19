@@ -7,7 +7,7 @@ function Navbar(props) {
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
           <li className="nav-item">
-            <a className="nav-link active" aria-current="page" href="#">Log in</a>
+            <a className="nav-link active" aria-current="page" href="/login">Log in</a>
           </li>
           <li className="nav-item">
             <a className="nav-link" href="#">Cart</a>
