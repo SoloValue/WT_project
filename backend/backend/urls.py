@@ -20,12 +20,14 @@ from rest_framework import routers
 from shop import views
 
 router = routers.DefaultRouter()
-router.register('categories', views.CategoryView, 'category')
-router.register('products', views.ProductView, 'product')
-router.register('users', views.UserView, 'user')
-router.register('orders', views.OrderView, 'order')
+router.register(r'products', views.ProductView, 'product')
+router.register(r'users', views.UserView, 'user')
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    path('auth/', include('rest_framework.urls')),
+    path('signup', views.SignupView.as_view()),
+    path('login', views.LoginView.as_view()),
+    path('authtoken', views.AuthTokenView.as_view()),
 ]

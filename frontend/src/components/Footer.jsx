@@ -9,7 +9,7 @@ function Footer(props) {
       {
         username: "testuser" + i,
         email: "testuser" + i + "@shop.aa",
-        password: "123"
+        password: "pass" + i
       }
     ));
 

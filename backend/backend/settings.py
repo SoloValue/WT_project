@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # third party package
     'corsheaders',
     'rest_framework',
+    'rest_framework.authtoken',
     # internal apps
     'shop',
 ]
