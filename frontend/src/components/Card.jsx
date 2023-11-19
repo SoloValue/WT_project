@@ -1,5 +1,3 @@
-import { useState } from "react";
-
 function Card(props) {
   return <div className="col mb-5">
     <div className="card h-100 m-2" >
@@ -13,7 +11,7 @@ function Card(props) {
             <button
               className="btn btn-outline-dark mt-auto m-1"
               onClick={() => {
-                props.increment(props.product.id);
+                props.addToCart(props.product.id);
               }}>Add to cart</button>
           </div>
         </div>
