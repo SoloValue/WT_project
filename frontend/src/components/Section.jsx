@@ -1,7 +1,7 @@
 import Card from './Card'
 
 function Section(props) {
-  const card_listJSX = props.apiResult.map((data, key) =>
+  const card_listJSX = props.products_list.map((data, key) =>
   (<Card
     product={data}
     key={key}

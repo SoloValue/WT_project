@@ -9,12 +9,12 @@ axios.defaults.baseURL = 'http://localhost:8000'; //address of Django API
 
 function App() {
   // GET request to API
-  const [apiResult, setApiResult] = useState([]);
+  const [products_list, setProductList] = useState([]);
   useEffect(() => {
     axios
       .get('/api/products/')
       .then((response) => {
-        setApiResult(response.data);
+        setProductList(response.data);
       })
       .catch((err) => {
         console.log(err);
@@ -29,7 +29,7 @@ function App() {
       <div>Cart: {JSON.stringify(cart)}</div>
     </div>
     <Section
-      apiResult={apiResult}
+      products_list={products_list}
       addToCart={(id) => setCart((s) => {
         if (!s[id]) {
           //spred operator
