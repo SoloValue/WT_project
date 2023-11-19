@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from "axios";
+import axios from "axios"
 
 import Section from '../components/Section'
 
@@ -34,4 +34,4 @@ function Home(props) {
   </>
 }
 
-export default Home;
+export default Home

@@ -5,6 +5,7 @@ import axios from "axios";
 // pages
 import Home from './pages/Home'
 import Login from './pages/Login'
+import Cart from './pages/Cart'
 
 // components
 import Navbar from './components/Navbar'
@@ -24,9 +25,10 @@ function App() {
         setCart={setCart}
       />} />
       <Route path='/login' element={<Login />} />
+      <Route path='/cart' element={<Cart />} />
     </Routes>
     <Footer />
   </>
 }
 
-export default App;
+export default App
