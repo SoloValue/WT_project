@@ -15,6 +15,11 @@ axios.defaults.baseURL = 'http://localhost:8000'; //address of Django API
 
 function App() {
 
+  const [authUser, setAuthUser] = useState({
+    username: "",
+    email: "",
+    token: ""
+  });
   const [cart, setCart] = useState({});
 
   return <>
@@ -24,7 +29,7 @@ function App() {
         cart={cart}
         setCart={setCart}
       />} />
-      <Route path='/login' element={<Login />} />
+      <Route path='/login' element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
       <Route path='/cart' element={<Cart />} />
     </Routes>
     <Footer />

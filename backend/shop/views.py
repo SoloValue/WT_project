@@ -72,5 +72,4 @@ class AuthTokenView(views.APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, format=None):
-        
         return Response({f'passed for {request.user.email}'})
