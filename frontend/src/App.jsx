@@ -6,6 +6,7 @@ import axios from "axios";
 import Home from './pages/Home'
 import Login from './pages/Login'
 import Cart from './pages/Cart'
+import Profile from './pages/Profile'
 
 // components
 import Navbar from './components/Navbar'
@@ -23,7 +24,7 @@ function App() {
   const [cart, setCart] = useState({});
 
   return <>
-    <Navbar />
+    <Navbar username={authUser.username} />
     <Routes>
       <Route path='/' element={<Home
         cart={cart}
@@ -31,6 +32,7 @@ function App() {
       />} />
       <Route path='/login' element={<Login authUser={authUser} setAuthUser={setAuthUser} />} />
       <Route path='/cart' element={<Cart />} />
+      <Route path='/profile' element={<Profile username={authUser.username} />} />
     </Routes>
     <Footer />
   </>

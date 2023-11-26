@@ -1,12 +1,15 @@
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 
 function Navbar(props) {
+  let isLoggedIn = (props.username !== '');
+
   return <nav className="navbar navbar-expand-lg bg-dark-subtle">
     <div className="container-fluid">
       <Link className="navbar-brand" to="/">E-Commerce</Link>
       <div className="collapse navbar-collapse" id="navbarSupportedContent">
         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-          <CustomLink to='/login'>Login</CustomLink>
+          {isLoggedIn ? <CustomLink to='/profile'>{props.username}</CustomLink> : <CustomLink to='/login'>Login</CustomLink>}
+
           <CustomLink to='/cart'>Cart</CustomLink>
         </ul>
         <form className="d-flex" role="search">
